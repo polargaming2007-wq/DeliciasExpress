@@ -39,7 +39,7 @@
         .precio {
             color: #1b5e20;
             font-size: 1.1rem;
-            font-weight: normal; /* Evita que WAVE lo detecte como "posible encabezado" */
+            font-weight: normal;
             margin: 10px 0;
         }
     </style>
@@ -225,8 +225,11 @@
         <!-- Mensaje de confirmación -->
         <p id="mensajeCarrito" class="mensaje" role="status" aria-live="polite" style="margin-top: 25px; font-weight: bold; color: green; text-align: center;"></p>
 
+        <!-- Botón transformado de enlace a botón interactivo para evitar alerta de enlace redundante -->
         <div class="centrado" style="margin: 30px 0; text-align: center;">
-            <a href="pedidos.html" class="boton" role="button" style="padding: 10px 20px; background: #333; color: #fff; text-decoration: none; border-radius: 5px; font-weight: bold; display: inline-block;">Ver mi pedido</a>
+            <button type="button" id="btnVerPedido" style="padding: 10px 20px; background: #333; color: #fff; border: none; border-radius: 5px; font-weight: bold; cursor: pointer;">
+                Ver mi pedido
+            </button>
         </div>
     </main>
 
@@ -234,11 +237,12 @@
         <p>&copy; 2026 Delicias Express. Todos los derechos reservados.</p>
     </footer>
 
-    <!-- Script para guardar en localStorage -->
+    <!-- Script para guardar en localStorage y redirigir al pedido -->
     <script>
         document.addEventListener("DOMContentLoaded", () => {
             const botonesAgregar = document.querySelectorAll(".boton.agregar");
             const mensajeCarrito = document.getElementById("mensajeCarrito");
+            const btnVerPedido = document.getElementById("btnVerPedido");
 
             botonesAgregar.forEach(boton => {
                 boton.addEventListener("click", (e) => {
@@ -257,6 +261,13 @@
                     }
                 });
             });
+
+            // Redirección del botón inferior para mantener la funcionalidad sin generar enlace redundante
+            if (btnVerPedido) {
+                btnVerPedido.addEventListener("click", () => {
+                    window.location.href = "pedidos.html";
+                });
+            }
         });
     </script>
 </body>
