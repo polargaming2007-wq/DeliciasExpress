@@ -73,22 +73,20 @@
 </head>
 
 <body>
-
-    <header>
-        <!-- Logotipo en la barra de navegación -->
-        <a href="index.html">
+<header>
+        <!-- Logotipo sin enlace para evitar la redundancia con el menú de inicio -->
+        <div>
             <img src="LogoDeliciasExpress.png" alt="Logotipo de Delicias Express" class="logo-img">
-        </a>
+        </div>
 
         <nav aria-label="Menú principal">
             <ul style="list-style: none; display: flex; gap: 20px; margin: 0; padding: 0;">
-                <li><a href="index.html" aria-current="page">Inicio</a></li>
-                <li><a href="menu.html">Menú</a></li>
-                <li><a href="pedidos.html">Pedidos</a></li>
+                <li><a href="index.html" aria-current="page" style="color: #1b5e20; font-weight: bold; text-decoration: none;">Inicio</a></li>
+                <li><a href="menu.html" style="color: #1b5e20; font-weight: bold; text-decoration: none;">Menú</a></li>
+                <li><a href="pedidos.html" style="color: #1b5e20; font-weight: bold; text-decoration: none;">Pedidos</a></li>
             </ul>
         </nav>
     </header>
-
     <main>
         <!-- Sección Banner Principal (Hero) con el logotipo -->
         <section class="hero" style="background: #1b5e20; color: #ffffff; padding: 50px 20px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-around; gap: 30px;">
