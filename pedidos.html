@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Revisa tu pedido y completa tus datos de envío en Delicias Express.">
+    <title>Delicias Express | Pedidos</title>
+    <link rel="stylesheet" href="css/estilos.css">
+</head>
+
+<body>
+
+    <header>
+        <h1>Delicias <span>Express</span></h1>
+
+        <nav aria-label="Menú principal">
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="menu.html">Menú</a></li>
+                <li><a href="pedidos.html" aria-current="page">Pedidos</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="contenedor">
+        <section class="titulo-seccion" style="text-align: center; margin: 20px 0;">
+            <h2>Mi pedido</h2>
+            <p>Revisa tus productos y completa tus datos para enviar el pedido.</p>
+        </section>
+
+        <div style="max-width: 650px; margin: 0 auto; display: flex; flex-direction: column; gap: 25px;">
+
+            <!-- Resumen del Carrito -->
+            <section class="resumen-pedido" style="background: #fff; padding: 25px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1);">
+                <h3>Productos seleccionados</h3>
+                
+                <ul id="listaPedidos" style="list-style: none; padding: 0; margin: 15px 0;">
+                    <li>Tu carrito está vacío.</li>
+                </ul>
+
+                <div style="display: flex; justify-content: space-between; align-items: center; font-size: 1.3rem; margin-top: 20px; border-top: 2px solid #eee; padding-top: 15px;">
+                    <strong>Total:</strong>
+                    <span id="totalMonto" style="font-weight: bold; color: #2e7d32;">$0.00</span>
+                </div>
+
+                <button id="btnVaciar" class="boton" style="background: #d32f2f; color: #fff; border: none; padding: 10px 15px; border-radius: 5px; cursor: pointer; margin-top: 15px;">
+                    Vaciar carrito
+                </button>
+            </section>
+
+            <!-- Formulario para Enviar el Pedido -->
+            <section class="datos-cliente" style="background: #fff; padding: 25px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1);">
+                <h3>Datos de envío y contacto</h3>
+                
+                <form id="formPedido" style="display: flex; flex-direction: column; gap: 15px; margin-top: 15px;">
+                    <div>
+                        <label for="nombre" style="display: block; margin-bottom: 5px; font-weight: bold;">Nombre completo:</label>
+                        <input type="text" id="nombre" required style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px;" placeholder="Ej. Juan Pérez">
+                    </div>
+
+                    <div>
+                        <label for="telefono" style="display: block; margin-bottom: 5px; font-weight: bold;">Número de teléfono:</label>
+                        <input type="tel" id="telefono" required style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px;" placeholder="Ej. 0991234567">
+                    </div>
+
+                    <div>
+                        <label for="direccion" style="display: block; margin-bottom: 5px; font-weight: bold;">Dirección de entrega:</label>
+                        <textarea id="direccion" rows="3" required style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px;" placeholder="Calle, número de casa, referencias..."></textarea>
+                    </div>
+
+                    <div>
+                        <label for="metodoPago" style="display: block; margin-bottom: 5px; font-weight: bold;">Método de pago:</label>
+                        <select id="metodoPago" style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px; background: #fff;">
+                            <option value="Efectivo">Efectivo al recibir</option>
+                            <option value="Transferencia">Transferencia bancaria</option>
+                            <option value="Tarjeta">Tarjeta de crédito / débito</option>
+                        </select>
+                    </div>
+
+                    <!-- MINI MENÚ: Transferencia Bancaria (Oculto por defecto) -->
+                    <div id="seccionTransferencia" style="display: none; background: #f9f9f9; padding: 15px; border-radius: 6px; border: 1px dashed #2e7d32;">
+                        <h4 style="margin-bottom: 8px; color: #2e7d32;">Datos para Transferencia</h4>
+                        <p style="font-size: 0.9rem; margin-bottom: 10px; color: #555;">
+                            Banco: <strong>Banco Pichincha</strong><br>
+                            Tipo de Cuenta: <strong>Ahorros</strong><br>
+                            Nro. de Cuenta: <strong>1234567890</strong><br>
+                            Titular: <strong>Delicias Express Cía. Ltda.</strong><br>
+                            RUC: <strong>0999999999001</strong>
+                        </p>
+                        <label for="comprobante" style="display: block; margin-bottom: 5px; font-size: 0.9rem; font-weight: bold;">Número de Comprobante / Transferencia:</label>
+                        <input type="text" id="comprobante" style="width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 4px;" placeholder="Ej. TRF-0012345">
+                    </div>
+
+                    <!-- MINI MENÚ: Tarjeta de Crédito/Débito (Oculto por defecto) -->
+                    <div id="seccionTarjeta" style="display: none; background: #f9f9f9; padding: 15px; border-radius: 6px; border: 1px dashed #1976d2;">
+                        <h4 style="margin-bottom: 8px; color: #1976d2;">Detalles de la Tarjeta</h4>
+                        <div style="display: flex; flex-direction: column; gap: 10px;">
+                            <div>
+                                <label for="numTarjeta" style="display: block; font-size: 0.9rem; margin-bottom: 3px;">Número de tarjeta:</label>
+                                <input type="text" id="numTarjeta" style="width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 4px;" placeholder="XXXX-XXXX-XXXX-XXXX" maxlength="19">
+                            </div>
+                            <div style="display: flex; gap: 10px;">
+                                <div style="flex: 1;">
+                                    <label for="expTarjeta" style="display: block; font-size: 0.9rem; margin-bottom: 3px;">Expiración:</label>
+                                    <input type="text" id="expTarjeta" style="width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 4px;" placeholder="MM/AA" maxlength="5">
+                                </div>
+                                <div style="flex: 1;">
+                                    <label for="cvvTarjeta" style="display: block; font-size: 0.9rem; margin-bottom: 3px;">CVV:</label>
+                                    <input type="password" id="cvvTarjeta" style="width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 4px;" placeholder="123" maxlength="4">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="boton" style="background: #2e7d32; color: white; border: none; padding: 12px; border-radius: 5px; cursor: pointer; font-weight: bold; font-size: 1.1rem; margin-top: 10px;">
+                        Enviar Pedido
+                    </button>
+                </form>
+
+                <!-- Mensaje de confirmación del envío -->
+                <p id="mensajePedido" style="margin-top: 15px; font-weight: bold; text-align: center;"></p>
+            </section>
+
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Delicias Express. Todos los derechos reservados.</p>
+    </footer>
+
+    <!-- Script de lógica de pedidos corregido -->
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const listaPedidos = document.getElementById("listaPedidos");
+            const totalMonto = document.getElementById("totalMonto");
+            const btnVaciar = document.getElementById("btnVaciar");
+            const formPedido = document.getElementById("formPedido");
+            const mensajePedido = document.getElementById("mensajePedido");
+            
+            const metodoPago = document.getElementById("metodoPago");
+            const seccionTransferencia = document.getElementById("seccionTransferencia");
+            const seccionTarjeta = document.getElementById("seccionTarjeta");
+
+            function actualizarMetodoPago() {
+                const seleccion = metodoPago.value;
+                seccionTransferencia.style.display = "none";
+                seccionTarjeta.style.display = "none";
+
+                if (seleccion === "Transferencia") {
+                    seccionTransferencia.style.display = "block";
+                } else if (seleccion === "Tarjeta") {
+                    seccionTarjeta.style.display = "block";
+                }
+            }
+
+            metodoPago.addEventListener("change", actualizarMetodoPago);
+
+            function cargarPedido() {
+                let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+                
+                listaPedidos.innerHTML = "";
+                let total = 0;
+
+                if (carrito.length === 0) {
+                    listaPedidos.innerHTML = "<li>Tu carrito está vacío.</li>";
+                    totalMonto.textContent = "$0.00";
+                    return;
+                }
+
+                carrito.forEach((item) => {
+                    total += item.precio;
+                    const li = document.createElement("li");
+                    li.style.cssText = "display: flex; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid #eee;";
+                    // CORREGIDO AQUÍ (un solo signo de dólar)
+                    li.innerHTML = `<span>${item.nombre}</span> <span>$${item.precio.toFixed(2)}</span>`;
+                    listaPedidos.appendChild(li);
+                });
+
+                totalMonto.textContent = `$${total.toFixed(2)}`;
+            }
+
+            if (btnVaciar) {
+                btnVaciar.addEventListener("click", () => {
+                    localStorage.removeItem("carrito");
+                    cargarPedido();
+                    mensajePedido.textContent = "";
+                });
+            }
+
+            if (formPedido) {
+                formPedido.addEventListener("submit", (e) => {
+                    e.preventDefault();
+                    let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+
+                    if (carrito.length === 0) {
+                        mensajePedido.style.color = "red";
+                        mensajePedido.textContent = "¡Tu carrito está vacío! Agrega productos antes de enviar el pedido.";
+                        return;
+                    }
+
+                    const nombre = document.getElementById("nombre").value;
+                    const metodoSeleccionado = metodoPago.value;
+
+                    mensajePedido.style.color = "green";
+                    mensajePedido.textContent = `¡Gracias por tu compra, ${nombre}! Tu pedido con pago en (${metodoSeleccionado}) ha sido registrado con éxito.`;
+
+                    localStorage.removeItem("carrito");
+                    cargarPedido();
+                    formPedido.reset();
+                    actualizarMetodoPago();
+
+                    setTimeout(() => {
+                        mensajePedido.textContent = "";
+                    }, 6000);
+                });
+            }
+
+            cargarPedido();
+            actualizarMetodoPago();
+        });
+    </script>
+</body>
+</html>

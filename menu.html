@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Consulta el menú de Delicias Express y elige tu comida favorita.">
+    <title>Delicias Express | Menú</title>
+    <link rel="stylesheet" href="css/estilos.css">
+    <style>
+        .producto-imagen-foto {
+            width: 100%;
+            height: 160px;
+            object-fit: cover;
+            border-top-left-radius: 8px;
+            border-top-right-radius: 8px;
+        }
+        .producto {
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .producto-contenido {
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+            justify-content: space-between;
+        }
+        .productos {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>Delicias <span>Express</span></h1>
+
+        <nav aria-label="Menú principal">
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="menu.html" aria-current="page">Menú</a></li>
+                <li><a href="pedidos.html">Pedidos</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="contenedor">
+        <section class="titulo-seccion" style="text-align: center; margin: 20px 0;">
+            <h2>Nuestro menú</h2>
+            <p>Escoge tus productos favoritos y agrégalos a tu pedido.</p>
+        </section>
+
+        <section class="productos" aria-label="Productos disponibles">
+
+            <!-- 1. Hamburguesa -->
+            <article class="producto">
+                <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=500&q=80" alt="Hamburguesa clásica" class="producto-imagen-foto">
+                <div class="producto-contenido">
+                    <div>
+                        <h3>Hamburguesa clásica</h3>
+                        <p>Carne, queso, lechuga y tomate.</p>
+                    </div>
+                    <div>
+                        <p class="precio" style="font-weight: bold; color: #2e7d32; margin: 10px 0;">$5.00</p>
+                        <button class="boton agregar" data-nombre="Hamburguesa clásica" data-precio="5" style="width: 100%; padding: 8px; background: #2e7d32; color: white; border: none; border-radius: 4px; cursor: pointer;">
+                            Agregar al carrito
+                        </button>
+                    </div>
+                </div>
+            </article>
+
+            <!-- 2. Pizza -->
+            <article class="producto">
+                <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=500&q=80" alt="Pizza personal" class="producto-imagen-foto">
+                <div class="producto-contenido">
+                    <div>
+                        <h3>Pizza personal</h3>
+                        <p>Pizza con queso y salsa especial.</p>
+                    </div>
+                    <div>
+                        <p class="precio" style="font-weight: bold; color: #2e7d32; margin: 10px 0;">$7.00</p>
+                        <button class="boton agregar" data-nombre="Pizza personal" data-precio="7" style="width: 100%; padding: 8px; background: #2e7d32; color: white; border: none; border-radius: 4px; cursor: pointer;">
+                            Agregar al carrito
+                        </button>
+                    </div>
+                </div>
+            </article>
+
+            <!-- 3. Papas fritas -->
+            <article class="producto">
+                <img src="https://images.unsplash.com/photo-1573080496219-bb080dd4f877?auto=format&fit=crop&w=500&q=80" alt="Papas fritas" class="producto-imagen-foto">
+                <div class="producto-contenido">
+                    <div>
+                        <h3>Papas fritas</h3>
+                        <p>Papas crujientes con sal.</p>
+                    </div>
+                    <div>
+                        <p class="precio" style="font-weight: bold; color: #2e7d32; margin: 10px 0;">$2.50</p>
+                        <button class="boton agregar" data-nombre="Papas fritas" data-precio="2.50" style="width: 100%; padding: 8px; background: #2e7d32; color: white; border: none; border-radius: 4px; cursor: pointer;">
+                            Agregar al carrito
+                        </button>
+                    </div>
+                </div>
+            </article>
+
+            <!-- 4. Hot dog -->
+            <article class="producto">
+                <img src="https://images.unsplash.com/photo-1619740455993-9e612b1af08a?auto=format&fit=crop&w=500&q=80" alt="Hot dog" class="producto-imagen-foto">
+                <div class="producto-contenido">
+                    <div>
+                        <h3>Hot dog</h3>
+                        <p>Pan, salchicha y salsas.</p>
+                    </div>
+                    <div>
+                        <p class="precio" style="font-weight: bold; color: #2e7d32; margin: 10px 0;">$3.50</p>
+                        <button class="boton agregar" data-nombre="Hot dog" data-precio="3.50" style="width: 100%; padding: 8px; background: #2e7d32; color: white; border: none; border-radius: 4px; cursor: pointer;">
+                            Agregar al carrito
+                        </button>
+                    </div>
+                </div>
+            </article>
+
+            <!-- 5. Gaseosa -->
+            <article class="producto">
+                <img src="https://images.unsplash.com/photo-1622483767028-3f66f32aef97?auto=format&fit=crop&w=500&q=80" alt="Gaseosa" class="producto-imagen-foto">
+                <div class="producto-contenido">
+                    <div>
+                        <h3>Gaseosa</h3>
+                        <p>Bebida fría de 500 ml.</p>
+                    </div>
+                    <div>
+                        <p class="precio" style="font-weight: bold; color: #2e7d32; margin: 10px 0;">$1.50</p>
+                        <button class="boton agregar" data-nombre="Gaseosa" data-precio="1.50" style="width: 100%; padding: 8px; background: #2e7d32; color: white; border: none; border-radius: 4px; cursor: pointer;">
+                            Agregar al carrito
+                        </button>
+                    </div>
+                </div>
+            </article>
+
+            <!-- 6. Pollo broaster -->
+            <article class="producto">
+                <img src="https://images.unsplash.com/photo-1626082927389-6cd097cdc6ec?auto=format&fit=crop&w=500&q=80" alt="Pollo broaster" class="producto-imagen-foto">
+                <div class="producto-contenido">
+                    <div>
+                        <h3>Pollo broaster</h3>
+                        <p>Porción de pollo crocante.</p>
+                    </div>
+                    <div>
+                        <p class="precio" style="font-weight: bold; color: #2e7d32; margin: 10px 0;">$6.00</p>
+                        <button class="boton agregar" data-nombre="Pollo broaster" data-precio="6" style="width: 100%; padding: 8px; background: #2e7d32; color: white; border: none; border-radius: 4px; cursor: pointer;">
+                            Agregar al carrito
+                        </button>
+                    </div>
+                </div>
+            </article>
+
+            <!-- 7. NUEVO: Salchipapa especial -->
+            <article class="producto">
+                <img src="https://images.unsplash.com/photo-1541592106381-b31e9677c0e5?auto=format&fit=crop&w=500&q=80" alt="Salchipapa especial" class="producto-imagen-foto">
+                <div class="producto-contenido">
+                    <div>
+                        <h3>Salchipapa especial</h3>
+                        <p>Papas fritas con rodajas de salchicha y salsas de la casa.</p>
+                    </div>
+                    <div>
+                        <p class="precio" style="font-weight: bold; color: #2e7d32; margin: 10px 0;">$4.00</p>
+                        <button class="boton agregar" data-nombre="Salchipapa especial" data-precio="4" style="width: 100%; padding: 8px; background: #2e7d32; color: white; border: none; border-radius: 4px; cursor: pointer;">
+                            Agregar al carrito
+                        </button>
+                    </div>
+                </div>
+            </article>
+
+            <!-- 8. Combo Express -->
+            <article class="producto">
+                <img src="https://images.unsplash.com/photo-1594212699903-ec8a3eca50f5?auto=format&fit=crop&w=500&q=80" alt="Combo Express" class="producto-imagen-foto">
+                <div class="producto-contenido">
+                    <div>
+                        <h3>Combo Express 🍔🍟🥤</h3>
+                        <p>Hamburguesa clásica + Papas fritas + Gaseosa fría de 500 ml.</p>
+                    </div>
+                    <div>
+                        <p class="precio" style="font-weight: bold; color: #2e7d32; margin: 10px 0;">$7.50</p>
+                        <button class="boton agregar" data-nombre="Combo Express (Hamb + Papas + Gaseosa)" data-precio="7.50" style="width: 100%; padding: 8px; background: #2e7d32; color: white; border: none; border-radius: 4px; cursor: pointer;">
+                            Agregar al carrito
+                        </button>
+                    </div>
+                </div>
+            </article>
+
+            <!-- 9. Combo Pollo Crujiente -->
+            <article class="producto">
+                <img src="https://images.unsplash.com/photo-1562967914-608f82629710?auto=format&fit=crop&w=500&q=80" alt="Combo Familiar" class="producto-imagen-foto">
+                <div class="producto-contenido">
+                    <div>
+                        <h3>Combo Pollo Crujiente 🍗🍟🥤</h3>
+                        <p>2 Presas de Pollo broaster + Papas fritas + Gaseosa personal.</p>
+                    </div>
+                    <div>
+                        <p class="precio" style="font-weight: bold; color: #2e7d32; margin: 10px 0;">$8.50</p>
+                        <button class="boton agregar" data-nombre="Combo Pollo Crujiente (Pollo + Papas + Gaseosa)" data-precio="8.50" style="width: 100%; padding: 8px; background: #2e7d32; color: white; border: none; border-radius: 4px; cursor: pointer;">
+                            Agregar al carrito
+                        </button>
+                    </div>
+                </div>
+            </article>
+
+        </section>
+
+        <!-- Mensaje de confirmación -->
+        <p id="mensajeCarrito" class="mensaje" role="status" aria-live="polite" style="margin-top: 25px; font-weight: bold; color: green; text-align: center;"></p>
+
+        <div class="centrado" style="margin: 30px 0; text-align: center;">
+            <a href="pedidos.html" class="boton" style="padding: 10px 20px; background: #333; color: #fff; text-decoration: none; border-radius: 5px; font-weight: bold;">Ver mi pedido</a>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Delicias Express. Todos los derechos reservados.</p>
+    </footer>
+
+    <!-- Script para guardar en localStorage -->
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const botonesAgregar = document.querySelectorAll(".boton.agregar");
+            const mensajeCarrito = document.getElementById("mensajeCarrito");
+
+            botonesAgregar.forEach(boton => {
+                boton.addEventListener("click", (e) => {
+                    const nombre = e.target.getAttribute("data-nombre");
+                    const precio = parseFloat(e.target.getAttribute("data-precio"));
+
+                    let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+                    carrito.push({ nombre, precio });
+                    localStorage.setItem("carrito", JSON.stringify(carrito));
+
+                    if (mensajeCarrito) {
+                        mensajeCarrito.textContent = `¡"${nombre}" fue agregado al carrito!`;
+                        setTimeout(() => {
+                            mensajeCarrito.textContent = "";
+                        }, 2500);
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

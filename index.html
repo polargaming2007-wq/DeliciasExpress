@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Bienvenido a Delicias Express, la mejor comida rápida a domicilio.">
+    <title>Delicias Express | Inicio</title>
+    <link rel="stylesheet" href="css/estilos.css">
+    <style>
+        /* Estilos específicos para el logotipo y las imágenes de la página */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 30px;
+            background-color: #fff;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+        .logo-img {
+            max-height: 50px;
+            width: auto;
+            display: block;
+        }
+        .hero-imagen-foto {
+            max-width: 280px;
+            width: 100%;
+            height: auto;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            object-fit: contain;
+            background: #fff;
+            padding: 10px;
+        }
+        .categoria-imagen-foto {
+            width: 100%;
+            height: 140px;
+            object-fit: cover;
+            border-top-left-radius: 8px;
+            border-top-right-radius: 8px;
+        }
+        .categorias-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+        .tarjeta-categoria {
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            overflow: hidden;
+            text-align: center;
+            padding-bottom: 15px;
+        }
+        .tarjeta-categoria h3 {
+            margin: 15px 0 5px 0;
+        }
+        .tarjeta-categoria p {
+            padding: 0 15px;
+            color: #666;
+            font-size: 0.95rem;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <!-- Logotipo en la barra de navegación -->
+        <a href="index.html">
+            <img src="LogoDeliciasExpress.png" alt="Logo Delicias Express" class="logo-img">
+        </a>
+
+        <nav aria-label="Menú principal">
+            <ul style="list-style: none; display: flex; gap: 20px; margin: 0;">
+                <li><a href="index.html" aria-current="page">Inicio</a></li>
+                <li><a href="menu.html">Menú</a></li>
+                <li><a href="pedidos.html">Pedidos</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Sección Banner Principal (Hero) con el logotipo -->
+        <section class="hero" style="background: #1b5e20; color: white; padding: 50px 20px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-around; gap: 30px;">
+            <div style="max-width: 500px;">
+                <p style="text-transform: uppercase; letter-spacing: 1px; font-weight: bold; color: #a5d6a7; margin-bottom: 10px;">¡Sabor que te encanta!</p>
+                <h2 style="font-size: 2.5rem; margin-bottom: 15px; line-height: 1.2;">Bienvenido a Delicias Express</h2>
+                <p style="margin-bottom: 25px; font-size: 1.1rem; color: #e8f5e9;">Disfruta de hamburguesas, pizzas, papas fritas y mucho más. Preparamos nuestros alimentos para ofrecerte una experiencia deliciosa.</p>
+                <a href="menu.html" class="boton" style="background: #2e7d32; color: white; padding: 12px 25px; text-decoration: none; border-radius: 5px; font-weight: bold; display: inline-block; border: 2px solid #81c784;">Ver nuestro menú</a>
+            </div>
+            <div>
+                <!-- Logotipo integrado en el banner principal -->
+                <img src="LogoDeliciasExpress.png" alt="Logo Delicias Express Principal" class="hero-imagen-foto">
+            </div>
+        </section>
+
+        <!-- Sección de Categorías -->
+        <section class="contenedor" style="padding: 40px 20px; max-width: 1000px; margin: 0 auto;">
+            <h2 style="text-align: center; margin-bottom: 10px; font-size: 2rem;">¿Qué encontrarás con nosotros?</h2>
+            <p style="text-align: center; color: #666; margin-bottom: 30px;">Calidad y rapidez garantizadas en cada preparación.</p>
+
+            <div class="categorias-grid">
+                
+                <!-- Categoría 1 -->
+                <div class="tarjeta-categoria">
+                    <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=400&q=80" alt="Hamburguesas" class="categoria-imagen-foto">
+                    <h3>Hamburguesas</h3>
+                    <p>Deliciosas hamburguesas preparadas al momento con ingredientes frescos.</p>
+                </div>
+
+                <!-- Categoría 2 -->
+                <div class="tarjeta-categoria">
+                    <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=400&q=80" alt="Pizzas" class="categoria-imagen-foto">
+                    <h3>Pizzas</h3>
+                    <p>Variedad de pizzas con queso fundido y salsa especial de la casa.</p>
+                </div>
+
+                <!-- Categoría 3 -->
+                <div class="tarjeta-categoria">
+                    <img src="https://images.unsplash.com/photo-1573080496219-bb080dd4f877?auto=format&fit=crop&w=400&q=80" alt="Acompañamientos" class="categoria-imagen-foto">
+                    <h3>Acompañamientos</h3>
+                    <p>Disfruta de papas fritas crujientes y otras opciones deliciosas.</p>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Delicias Express. Todos los derechos reservados.</p>
+    </footer>
+
+</body>
+</html>
